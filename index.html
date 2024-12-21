@@ -565,10 +565,13 @@
       </div>
 
     </div>
-    <audio id="background-music" loop>
+    <audio id="background-music" autoplay loop>
       <source src="/music2.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
-    </audio>
+  </audio>
+
+  <!-- Controls -->
+
 
     <!-- Fallback button for user interaction -->
     <main id="main" class="main-wrapper">
@@ -604,7 +607,11 @@
               <nav id="header-nav" class="header_nav">
 
                 <div class="header_nav_item">
-                  <button id="play-button" style="display:none ;background-color: rgb(10 10 11 / 0%);"><img src="/volume_11828564.png" style="max-width: 20px;" alt=""></button>
+                  <div id="controls">
+                    <button id="play-button" style="display:none ;background-color: rgb(10 10 11 / 0%);"><img src="/unmute-icon.png" style="max-width: 20px;" alt=""></button>
+                    <button id="mute-button" style="background-color: rgb(10 10 11 / 0%);"><img src="/mute-icon.png" id="mute-icon" style="max-width: 20px;" alt=""></button>
+                   
+                </div>
                 </div>
                 <div class="header_nav_item"><a data-header-nav-link="About" href="#about"
                     class="header_nav_link">About</a></div>
@@ -1348,29 +1355,42 @@
     });
 
   </script>
-  <script>
+   <script>
     const music = document.getElementById('background-music');
     const playButton = document.getElementById('play-button');
+    const muteButton = document.getElementById('mute-button');
+    const muteIcon = document.getElementById('mute-icon');
 
     // Function to attempt autoplay
     function autoPlayMusic() {
-      music.play().then(() => {
-        console.log("Music is playing.");
-      }).catch((error) => {
-        console.log("Autoplay blocked. Showing play button.");
-        playButton.style.display = "block"; // Show play button if autoplay fails
-      });
+        music.play().then(() => {
+            console.log("Music is playing.");
+        }).catch((error) => {
+            console.log("Autoplay blocked. Showing play button.");
+            playButton.style.display = "block"; // Show play button if autoplay fails
+        });
     }
 
-    // Play music when user clicks the button
+    // Play music when user clicks the "Play Music" button
     playButton.addEventListener('click', () => {
-      music.play();
-      playButton.style.display = "none"; // Hide the button once music starts
+        music.play();
+        playButton.style.display = "none"; // Hide the button once music starts
+    });
+
+    // Mute/Unmute functionality with icons
+    muteButton.addEventListener('click', () => {
+        if (music.muted) {
+            music.muted = false;
+            muteIcon.src = "mute-icon.png"; // Replace with your mute icon
+        } else {
+            music.muted = true;
+            muteIcon.src = "unmute-icon.png"; // Replace with your unmute icon
+        }
     });
 
     // Attempt to play music on page load
     window.addEventListener('load', autoPlayMusic);
-  </script>
+</script>
 </body>
 
 </html>
