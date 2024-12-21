@@ -563,7 +563,15 @@
           /*=====      End of Note asterisk      ======*/
         </style>
       </div>
+
     </div>
+    <audio id="background-music" loop>
+      <source src="/music2.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+
+  <!-- Fallback button for user interaction -->
+  <button id="play-button" style="display: none !important; top: -200px;">Play Music</button>
     <main id="main" class="main-wrapper">
       <div id="loader" class="loader_component">
         <div class="loader_content">
@@ -1334,6 +1342,29 @@
 
     });
 
+  </script>
+    <script>
+      const music = document.getElementById('background-music');
+      const playButton = document.getElementById('play-button');
+
+      // Function to attempt autoplay
+      function autoPlayMusic() {
+          music.play().then(() => {
+              console.log("Music is playing.");
+          }).catch((error) => {
+              console.log("Autoplay blocked. Showing play button.");
+              // Show play button if autoplay fails
+          });
+      }
+
+      // Play music when user clicks the button
+      playButton.addEventListener('click', () => {
+          music.play();
+          playButton.style.display = "none"; // Hide the button once music starts
+      });
+
+      // Attempt to play music on page load
+      window.addEventListener('load', autoPlayMusic);
   </script>
 </body>
 
