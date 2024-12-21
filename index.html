@@ -315,7 +315,7 @@
           @media screen and (max-width: 1060px) and (min-height: 1100px) {
             .hero_component {
               justify-content: center;
-              background-image:url("/logo.jpg") ;
+              background-image: url("/logo.jpg");
             }
 
             .hero_star {
@@ -568,10 +568,9 @@
     <audio id="background-music" loop>
       <source src="/music2.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
-  </audio>
+    </audio>
 
-  <!-- Fallback button for user interaction -->
-  <button id="play-button" style="display: none !important; top: -200px;">Play Music</button>
+    <!-- Fallback button for user interaction -->
     <main id="main" class="main-wrapper">
       <div id="loader" class="loader_component">
         <div class="loader_content">
@@ -600,10 +599,13 @@
       <header id="page-header" class="header_component">
         <div class="padding-global">
           <div class="container-large">
-            <div class="header_inner"><a href="#hero" class="header_logo w-inline-block"><img
-                  src="/logo2.png" style="max-width: 50px;"
-                  loading="lazy" alt="HOOD AI logotype" class="header_logo_image" /></a>
+            <div class="header_inner"><a href="#hero" class="header_logo w-inline-block"><img src="/logo2.png"
+                  style="max-width: 50px;" loading="lazy" alt="HOOD AI logotype" class="header_logo_image" /></a>
               <nav id="header-nav" class="header_nav">
+
+                <div class="header_nav_item">
+                  <button id="play-button" style="display:none ;background-color: #0a0a0b;"><img src="/volume_11828564.png" style="max-width: 20px;" alt=""></button>
+                </div>
                 <div class="header_nav_item"><a data-header-nav-link="About" href="#about"
                     class="header_nav_link">About</a></div>
                 <div class="header_nav_item"><a data-header-nav-link="Our Tools" href="#tools"
@@ -623,9 +625,9 @@
                   </div>
                 </div>
               </nav>
-              <div class="header_cta"><a rel="nofolow" href="chartlink" target="_blank"
-                  class="button-main">$HOOD CHART</a></div><button type="button" id="header-nav-toggle"
-                class="header_nav-toggle"><span class="header_nav-toggle_icon"><span id="header-nav-toggle-line-1"
+              <div class="header_cta"><a rel="nofolow" href="chartlink" target="_blank" class="button-main">$HOOD
+                  CHART</a></div><button type="button" id="header-nav-toggle" class="header_nav-toggle"><span
+                  class="header_nav-toggle_icon"><span id="header-nav-toggle-line-1"
                     class="header_nav-toggle_line"></span><span id="header-nav-toggle-line-2"
                     class="header_nav-toggle_line"></span><span id="header-nav-toggle-line-3"
                     class="header_nav-toggle_line"></span></span></button>
@@ -642,11 +644,10 @@
                   loop="true" autoplay="true" class="hero_star_lottie"></lottie-player></div>
               <div class="hero_header">
                 <h1 class="hero_heading"><span class="hero_heading_row"><span data-hero-element="true"
-                      class="hero_heading_text">HOOD AI</span></span><span class="hero_heading_row">Answers straight up, 
-                        <span
-                      data-hero-element="true" class="hero_heading_text"></span>no cap, all day.
-                    </span><span
-                    class="hero_heading_row"><span data-hero-element="true" class="hero_heading_text"></span></span></h1>
+                      class="hero_heading_text">HOOD AI</span></span><span class="hero_heading_row">Answers straight up,
+                    <span data-hero-element="true" class="hero_heading_text"></span>no cap, all day.
+                  </span><span class="hero_heading_row"><span data-hero-element="true"
+                      class="hero_heading_text"></span></span></h1>
                 <div class="hero_footer_arrows"></div>
                 <div class="hero_header_arrow">
                   <div data-hero-element="" class="hero_header_arrow_image"></div>
@@ -656,7 +657,8 @@
                 </div>
               </div>
               <div class="hero_footer">
-                <div id="hero-footer-cta" class="hero_footer_cta w-node-_82d8dc9d-42c5-980b-0373-9442f5bcdbd7-222e95f3" style="display: flex;gap: 10px;">
+                <div id="hero-footer-cta" class="hero_footer_cta w-node-_82d8dc9d-42c5-980b-0373-9442f5bcdbd7-222e95f3"
+                  style="display: flex;gap: 10px;">
                   <a data-hero-element="" rel="nofolow" id="w-node-_82d8dc9d-42c5-980b-0373-9442f5bcdbd8-222e95f3"
                     href="buylink" target="_blank" class="button-secondary w-inline-block">
                     <div class="button-secondary_caption">buy hood ai now</div><svg xmlns="http://www.w3.org/2000/svg"
@@ -703,18 +705,24 @@
         <div class="padding-global">
           <div class="container-small">
             <div class="why-choose_component">
-              <div class="why-choose_cover"><img src="/logo.jpg" style="border-radius: 2rem;" loading="lazy" width="385" height="385"
-                  alt="A black square with a white circle and an orange circle." class="why-choose_cover_image" />
+              <div class="why-choose_cover"><img src="/logo.jpg" style="border-radius: 2rem;" loading="lazy" width="385"
+                  height="385" alt="A black square with a white circle and an orange circle."
+                  class="why-choose_cover_image" />
                 <div class="why-choose_cover_gradient">
                   <div class="why-choose_cover_noise"></div>
                 </div>
               </div>
               <div class="why-choose_content">
                 <div class="why-choose_header">
-                  <h2 class="why-choose_title"><span class="text-weight-normal">Why</span>  Bettas Gotta Rock Wit<span
+                  <h2 class="why-choose_title"><span class="text-weight-normal">Why</span> Bettas Gotta Rock Wit<span
                       class="text-weight-normal">HOOD</span> <span class="text-weight-normal">AI?</span></h2>
                 </div>
-                <div class="why-choose_text">Bettas should roll with HOOD AI ‘cuz it’s all about real talk, no fluff. This ain’t no fake vibe – HOOD AI keeps it 100, spittin’ straight answers all day without frontin’. It’s got entertainment on lock, servin’ up gangsta flavor in every convo, makin’ it fun while still keepin’ it real. Plus, it’s fast as hell, droppin’ answers on da spot like a true hustla – no delays, no nonsense. And most importantly, it’s all about da culture. Bettas respect dat street vibe, and HOOD AI brings it raw, just like da block.</div>
+                <div class="why-choose_text">Bettas should roll with HOOD AI ‘cuz it’s all about real talk, no fluff.
+                  This ain’t no fake vibe – HOOD AI keeps it 100, spittin’ straight answers all day without frontin’.
+                  It’s got entertainment on lock, servin’ up gangsta flavor in every convo, makin’ it fun while still
+                  keepin’ it real. Plus, it’s fast as hell, droppin’ answers on da spot like a true hustla – no delays,
+                  no nonsense. And most importantly, it’s all about da culture. Bettas respect dat street vibe, and HOOD
+                  AI brings it raw, just like da block.</div>
               </div>
             </div>
           </div>
@@ -834,7 +842,7 @@
                   <h3 class="roadmap_heading is-width-full">Phase 1 – Pull Up on Da Block:</h3>
                   <div class="roadmap_rich-text w-richtext">
                     <p>Drop HOOD AI on Telegram for da first wave of street hustlas.
-                      </p>
+                    </p>
                     <p>Build da fam wit’ campaigns on socials and word of mouth.
                     </p>
                   </div>
@@ -853,13 +861,13 @@
               <div class="roadmap_group-2">
                 <div id="w-node-_9905b334-4304-b181-33db-789daa38be65-222e95f3" class="roadmap_content">
                   <h3 class="roadmap_heading">Phase 2 – Level Up Da Game:
-</h3>
+                  </h3>
                   <div class="roadmap_rich-text w-richtext">
                     <p>
                       Add mad features, like custom gangsta replies n’ multi-language talkin’.
-                      </p>
+                    </p>
                     <p>
-                   
+
                       Keep it fresh n’ upgrade dat street style.</p>
                   </div>
                 </div>
@@ -877,12 +885,12 @@
               <div class="roadmap_group-3">
                 <div id="w-node-_970e1564-58ee-06f3-76db-7b85109c7876-222e95f3" class="roadmap_content is-3">
                   <h3 class="roadmap_heading">Phase 3 – Take Over Da Hood:
-</h3>
+                  </h3>
                   <div class="roadmap_rich-text w-richtext">
-                    <p >
+                    <p>
                       Link up wit’ Solana projects for big moves n’ partnerships.
-                     </p>
-                    <p >
+                    </p>
+                    <p>
                       Spread da word through influencers n’ viral content to grow da empire.</p>
                   </div>
                 </div>
@@ -909,21 +917,18 @@
       <footer class="footer_component">
         <div class="padding-global">
           <div class="container-large">
-            <div class="footer_inner"><a href="#hero" class="footer_logo w-inline-block"><img
-                  src="/logo2.png"
+            <div class="footer_inner"><a href="#hero" class="footer_logo w-inline-block"><img src="/logo2.png"
                   loading="lazy" alt="HOOD AI logotype" class="footer_logo_image" /></a>
               <div class="footer_content">
                 <div class="footer_links">
                   <ol role="list" class="footer_links_list">
-                    <li class="footer_links_list-item"><a href="chartlink"
-                        class="footer_link">DEXTOOLS</a></li>
-                    <li class="footer_links_list-item"><a rel="nofolow"
-                        href="dxlink" target="_blank"
+                    <li class="footer_links_list-item"><a href="chartlink" class="footer_link">DEXTOOLS</a></li>
+                    <li class="footer_links_list-item"><a rel="nofolow" href="dxlink" target="_blank"
                         class="footer_link">DEXSCREENER</a></li>
                     <li class="footer_links_list-item"><a rel="nofolow" href="ttlink" target="_blank"
                         class="footer_link">x.com</a></li>
-                    <li class="footer_links_list-item is-last"><a rel="nofolow" href="tglink"
-                        target="_blank" class="footer_link">Telegram</a></li>
+                    <li class="footer_links_list-item is-last"><a rel="nofolow" href="tglink" target="_blank"
+                        class="footer_link">Telegram</a></li>
                   </ol>
                 </div>
                 <div class="footer_adds">
@@ -1343,28 +1348,28 @@
     });
 
   </script>
-    <script>
-      const music = document.getElementById('background-music');
-      const playButton = document.getElementById('play-button');
+  <script>
+    const music = document.getElementById('background-music');
+    const playButton = document.getElementById('play-button');
 
-      // Function to attempt autoplay
-      function autoPlayMusic() {
-          music.play().then(() => {
-              console.log("Music is playing.");
-          }).catch((error) => {
-              console.log("Autoplay blocked. Showing play button.");
-              // Show play button if autoplay fails
-          });
-      }
-
-      // Play music when user clicks the button
-      playButton.addEventListener('click', () => {
-          music.play();
-          playButton.style.display = "none"; // Hide the button once music starts
+    // Function to attempt autoplay
+    function autoPlayMusic() {
+      music.play().then(() => {
+        console.log("Music is playing.");
+      }).catch((error) => {
+        console.log("Autoplay blocked. Showing play button.");
+        playButton.style.display = "block"; // Show play button if autoplay fails
       });
+    }
 
-      // Attempt to play music on page load
-      window.addEventListener('load', autoPlayMusic);
+    // Play music when user clicks the button
+    playButton.addEventListener('click', () => {
+      music.play();
+      playButton.style.display = "none"; // Hide the button once music starts
+    });
+
+    // Attempt to play music on page load
+    window.addEventListener('load', autoPlayMusic);
   </script>
 </body>
 
