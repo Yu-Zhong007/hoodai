@@ -562,15 +562,39 @@
 
           /*=====      End of Note asterisk      ======*/
         </style>
+        <style>
+   .toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: rgba(255, 0, 0, 0); /* Temporary for debugging */
+    }
+
+    .toggle-btn:focus {
+      outline: none;
+    }
+        </style>
       </div>
 
     </div>
-    <audio id="background-music" autoplay loop>
-      <source src="/music2.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
+    <div class="music-control">
+      <audio id="background-music" loop autoplay>
+        <source src="music2.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
-  <!-- Controls -->
+    </div>
+  
+
+    <!-- Controls -->
 
 
     <!-- Fallback button for user interaction -->
@@ -608,10 +632,15 @@
 
                 <div class="header_nav_item">
                   <div id="controls">
-                    <button id="play-button" style="display:none ;background-color: rgb(10 10 11 / 0%);"><img src="/unmute-icon.png" style="max-width: 20px;" alt=""></button>
-                    <button id="mute-button" style="background-color: rgb(10 10 11 / 0%);"><img src="/mute-icon.png" id="mute-icon" style="max-width: 20px;" alt=""></button>
-                   
-                </div>
+                    <!-- <button id="play-button" class="buttonm"
+                      style="display:none ;background-color: rgb(10 10 11 / 0%);">
+                      <img src="/unmute-icon.png" style="max-width: 20px;" alt="">
+                    </button>
+                    <button id="mute-button" class="buttonm" style="background-color: rgb(10 10 11 / 0%);">
+                      <img src="/mute-icon.png" id="mute-icon" style="max-width: 20px;" alt="">
+                    </button> -->
+                    <button id="mute-unmute-btn" class="toggle-btn"></button>
+                  </div>
                 </div>
                 <div class="header_nav_item"><a data-header-nav-link="About" href="#about"
                     class="header_nav_link">About</a></div>
@@ -1355,41 +1384,29 @@
     });
 
   </script>
-   <script>
-    const music = document.getElementById('background-music');
-    const playButton = document.getElementById('play-button');
-    const muteButton = document.getElementById('mute-button');
-    const muteIcon = document.getElementById('mute-icon');
+<script>
+  const music = document.getElementById('background-music');
+  const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
 
-    // Function to attempt autoplay
-    function autoPlayMusic() {
-        music.play().then(() => {
-            console.log("Music is playing.");
-        }).catch((error) => {
-            console.log("Autoplay blocked. Showing play button.");
-            playButton.style.display = "block"; // Show play button if autoplay fails
-        });
+  const muteIcon = '/mute-icon.png'; // Adjust to your file path
+  const unmuteIcon = '/unmute-icon.png'; // Adjust to your file path
+
+  // Set initial button icon
+  muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+
+  music.play().catch((error) => {
+    console.error("Autoplay might be restricted:", error);
+  });
+
+  muteUnmuteBtn.addEventListener('click', () => {
+    if (music.muted) {
+      music.muted = false;
+      muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+    } else {
+      music.muted = true;
+      muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
     }
-
-    // Play music when user clicks the "Play Music" button
-    playButton.addEventListener('click', () => {
-        music.play();
-        playButton.style.display = "none"; // Hide the button once music starts
-    });
-
-    // Mute/Unmute functionality with icons
-    muteButton.addEventListener('click', () => {
-        if (music.muted) {
-            music.muted = false;
-            muteIcon.src = "mute-icon.png"; // Replace with your mute icon
-        } else {
-            music.muted = true;
-            muteIcon.src = "unmute-icon.png"; // Replace with your unmute icon
-        }
-    });
-
-    // Attempt to play music on page load
-    window.addEventListener('load', autoPlayMusic);
+  });
 </script>
 </body>
 
