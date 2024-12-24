@@ -585,17 +585,12 @@
       </div>
 
     </div>
-    <!-- <div class="music-control">
+    <div class="music-control">
       <audio id="background-music" loop autoplay>
         <source src="music2.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
-    </div> -->
-    <div class="music-control">
-      <audio id="background-music" loop autoplay muted>
-        <source src="music2.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+
     </div>
   
 
@@ -1389,34 +1384,30 @@
     });
 
   </script>
-   <script>
-    // Get references to the elements
-    const music = document.getElementById('background-music');
-    const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
+<script>
+  const music = document.getElementById('background-music');
+  const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
 
-    // Define paths to custom icons
-    const muteIcon = 'mute-icon.png';   // Path to mute icon
-    const unmuteIcon = 'unmute-icon.png'; // Path to unmute icon
+  const muteIcon = '/mute-icon.png'; // Adjust to your file path
+  const unmuteIcon = '/unmute-icon.png'; // Adjust to your file path
 
-    // Set initial button icon (muted by default)
-    muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
+  // Set initial button icon
+  muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
 
-    // Ensure autoplay works for browsers requiring muted start
-    music.play().catch((error) => {
-      console.error('Autoplay might be blocked:', error);
-    });
+  music.play().catch((error) => {
+    console.error("Autoplay might be restricted:", error);
+  });
 
-    // Add click event to toggle mute/unmute
-    muteUnmuteBtn.addEventListener('click', () => {
-      if (music.muted) {
-        music.muted = false;
-        muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`; // Set unmute icon
-      } else {
-        music.muted = true;
-        muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`; // Set mute icon
-      }
-    });
-  </script>
+  muteUnmuteBtn.addEventListener('click', () => {
+    if (music.muted) {
+      music.muted = false;
+      muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+    } else {
+      music.muted = true;
+      muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
+    }
+  });
+</script>
 </body>
 
 </html>
