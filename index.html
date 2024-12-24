@@ -563,22 +563,14 @@
           /*=====      End of Note asterisk      ======*/
         </style>
         <style>
-   .toggle-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .mute-button {
       background: none;
       border: none;
       cursor: pointer;
-      width: 20px;
-      height: 20px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: rgba(255, 0, 0, 0); /* Temporary for debugging */
+      font-size: 24px;
     }
 
-    .toggle-btn:focus {
+    .mute-button:focus {
       outline: none;
     }
         </style>
@@ -586,11 +578,10 @@
 
     </div>
     <div class="music-control">
-      <audio id="background-music" loop autoplay>
-        <source src="music.mp3" type="audio/mpeg">
+       <audio id="backgroundMusic" loop>
+        <source src="music2.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
-
     </div>
   
 
@@ -639,7 +630,8 @@
                     <button id="mute-button" class="buttonm" style="background-color: rgb(10 10 11 / 0%);">
                       <img src="/mute-icon.png" id="mute-icon" style="max-width: 20px;" alt="">
                     </button> -->
-                    <button id="mute-unmute-btn" class="toggle-btn"></button>
+                    <!-- <button id="mute-unmute-btn" class="toggle-btn"></button> -->
+                    <button id="muteButton" class="mute-button">🔊</button>
                   </div>
                 </div>
                 <div class="header_nav_item"><a data-header-nav-link="About" href="#about"
@@ -1384,29 +1376,42 @@
     });
 
   </script>
+
 <script>
-  const music = document.getElementById('background-music');
-  const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
+  const audio = document.getElementById('backgroundMusic');
+  const muteButton = document.getElementById('muteButton');
 
-  const muteIcon = '/mute-icon.png'; // Adjust to your file path
-  const unmuteIcon = '/unmute-icon.png'; // Adjust to your file path
+  // Function to update button icon based on audio state
+  const updateButtonIcon = () => {
+    muteButton.textContent = audio.muted || audio.paused ? '🔇' : '🔊';
+  };
 
-  // Set initial button icon
-  muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
-
-  music.play().catch((error) => {
-    console.error("Autoplay might be restricted:", error);
-  });
-
-  muteUnmuteBtn.addEventListener('click', () => {
-    if (music.muted) {
-      music.muted = false;
-      muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+  // Toggle mute state and update button icon
+  muteButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().then(() => {
+        audio.muted = false;
+        updateButtonIcon();
+      }).catch(err => console.error('Audio play failed:', err));
     } else {
-      music.muted = true;
-      muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
+      audio.muted = !audio.muted;
+      updateButtonIcon();
     }
   });
+
+  // Start playing audio when user interacts with the page
+  const enableAudioOnInteraction = () => {
+    audio.play().then(() => {
+      updateButtonIcon();
+    }).catch(err => console.warn('Audio auto-play blocked:', err));
+    document.removeEventListener('click', enableAudioOnInteraction);
+  };
+
+  // Listen for the first user interaction
+  document.addEventListener('click', enableAudioOnInteraction);
+
+  // Initialize button icon on load
+  updateButtonIcon();
 </script>
 </body>
 
