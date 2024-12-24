@@ -1384,30 +1384,40 @@
     });
 
   </script>
-<script>
-  const music = document.getElementById('background-music');
-  const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
+  <script>
+    const music = document.getElementById('background-music');
+    const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
+    const playMusicBtn = document.getElementById('play-music-btn');
 
-  const muteIcon = '/mute-icon.png'; // Adjust to your file path
-  const unmuteIcon = '/unmute-icon.png'; // Adjust to your file path
+    const muteIcon = 'mute-icon.png';
+    const unmuteIcon = 'unmute-icon.png';
 
-  // Set initial button icon
-  muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+    // Set initial icon
+    muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
 
-  music.play().catch((error) => {
-    console.error("Autoplay might be restricted:", error);
-  });
+    // Ensure autoplay works if possible
+    music.play().catch((error) => {
+      console.warn('Autoplay failed. User interaction required:', error);
+    });
 
-  muteUnmuteBtn.addEventListener('click', () => {
-    if (music.muted) {
+    muteUnmuteBtn.addEventListener('click', () => {
+      if (music.muted) {
+        music.muted = false;
+        muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
+      } else {
+        music.muted = true;
+        muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
+      }
+    });
+
+    // User interaction fallback
+    playMusicBtn.addEventListener('click', () => {
       music.muted = false;
-      muteUnmuteBtn.style.backgroundImage = `url('${unmuteIcon}')`;
-    } else {
-      music.muted = true;
-      muteUnmuteBtn.style.backgroundImage = `url('${muteIcon}')`;
-    }
-  });
-</script>
+      music.play().catch((error) => {
+        console.error('Playback failed:', error);
+      });
+    });
+  </script>
 </body>
 
 </html>
